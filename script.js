@@ -1,6 +1,7 @@
 let exisistingGrid=null;
 let rows = [];
 let color='';
+let pressed = false;
 function getColor(){
     color = document.getElementById("input1").value
       return color;
@@ -40,9 +41,21 @@ function grid(noOfDiv){
         exisistingGrid=null;
     }
     rows.forEach(rows => {
+
+        rows.addEventListener('mousedown', (e) => {
+            e.target.style.cssText=`background-color:${color}`
+            pressed=true;
+        })
+
+        rows.addEventListener('mouseup', () => {
+            pressed=false;
+        })
        
         rows.addEventListener('mouseover',(e)=> {
-        e.target.style.cssText=`background-color:${color}`})
+        if(pressed){
+            e.target.style.cssText=`background-color:${color}`
+        }
+        })
      });
     
 }
