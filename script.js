@@ -44,7 +44,7 @@ randomColor = ()=>{
    
 function getColor(){
     chooseColor=0;/* If assigned 0 will not trigger random color */ 
-    callFunction == 0;
+    callFunction = 0;/* the main purpose here is that for you can use random more than once */
     color = document.getElementById("input1").value;
     if (callFunction == 0) {
         colorRow();
@@ -62,6 +62,7 @@ function call(){
   
  let removeElement = 0;/*Constant key to tracks whether first element exists*/
 function makeGrid(noOfDiv){  /* to make grid*/
+callFunction = 0;
 if(noOfDiv>100){
    prompt("greater than 100");
    return '';
