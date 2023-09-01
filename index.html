@@ -6,9 +6,13 @@
     <title>Document</title>
     <script src = "script.js" defer></script>
 </head>
-<body>
-    <input type="button" onclick="call()"></input>
-    <h2>Color:<input id="input1" placeholder="Color" type = 'text' onblur="getColor()"></input></h2> 
+<body onload="makeGrid(16)">
+  <div class="container">
+    <div class="input">
+        <input value="Select No Of Boxes" type="button" onclick="call()"></input>
+        <h2>Color:<input id="input1" placeholder="Color" type = 'text' onblur="getColor()"></input><input type="submit"  value="OK"></input></h2> 
+    </div>
+   </div>
 </body>
 
 <style>
@@ -19,10 +23,8 @@
    flex-direction: column;
 }
 .row{
-     
     flex:1;
     border:1px solid; 
-     
 }
 .grid{
      
@@ -31,9 +33,33 @@
    height: 300px;
    width: 300px;
    border:4px solid rgb(227, 13, 231);
+   flex: none;
 }
 .color{
     background-color: aqua;
 }
+.input{
+    background-color: pink;
+    border-radius: 34px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 32em;
+}
+.input > *{
+    align-items: center;
+}
+input{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 24px;
+}
+.container{
+    display: flex;
+    flex-flow:column wrap;
+    gap:84px;
+    
+}
+
 </style>
 </html>
