@@ -8,14 +8,15 @@ function getColor(){
   }
 function call(){
     let n =prompt("enter no b/w 1 to 100");
-    grid(n);
+    makeGrid(n);
     
 }
- const cont = document.createElement("div");
- cont.className = 'container';
- document.body.append(cont);
- 
-function grid(noOfDiv){
+ const cont = document.querySelector(".container");/*main container to hold everything for styling purpose*/
+  
+  
+ let removeElement = 0;/*Constant key to tracks whether first element exists*/
+function makeGrid(noOfDiv){  /* to make grid*/
+    
     const grid = document.createElement("div")
     grid.className= 'grid';
     for(let i = 0; i <noOfDiv ; i++){
@@ -34,11 +35,17 @@ function grid(noOfDiv){
     if(exisistingGrid===null){
         cont.appendChild(grid);
         exisistingGrid = true;
+        /*to remove the first grid if 
+and only it exists*/
+        if(removeElement>0){
+            cont.removeChild(cont.children[1]);
+        }
+        ++removeElement;
     }
     else{
-       cont.removeChild(cont.firstChild);
+       cont.removeChild(cont.lastChild);
        cont.appendChild(grid);
-        exisistingGrid=null;
+       exisistingGrid=null;
     }
     rows.forEach(rows => {
 
@@ -57,14 +64,6 @@ function grid(noOfDiv){
         }
         })
      });
-    
 }
  
-
-
-
- 
-
-     console.log(rows)
-      
-   
+/*styling purposes*/
